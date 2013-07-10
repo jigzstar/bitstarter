@@ -9,7 +9,7 @@ fs.readFile('index.html','utf-8',function read(err,data){
 	return console.log(err);
     }
 //   content = data;
-    buffer.write(data,"ascii");
+    buffer.write(data,"utf-8");
     size = data.length;
 });
 
@@ -17,7 +17,7 @@ fs.readFile('index.html','utf-8',function read(err,data){
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send(buffer.toString('ascii'));
+  response.send(buffer.toString('utf-8'));
 });
 
 var port = process.env.PORT || 5000;
