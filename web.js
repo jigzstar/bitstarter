@@ -8,7 +8,7 @@ fs.readFile('index.html','utf-8',function read(err,data){
 	return console.log(err);
     }
 //   content = data;
-    buffer.write(data,"utf-8");
+    buffer.write(data,"ascii");
 });
 
 
