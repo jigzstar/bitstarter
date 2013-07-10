@@ -1,13 +1,14 @@
 var express = require('express');
 
 var fs = require('fs');
+var buffer = new Buffer(255);
 
 fs.readFile('index.html','utf-8',function read(err,data){
     if(err){
 	return console.log(err);
     }
 //   content = data;
-    var buffer = new Buffer(data,"utf-8");
+    buffer.write(data,"utf-8");
 });
 
 
