@@ -2,6 +2,7 @@ var express = require('express');
 
 var fs = require('fs');
 var buffer = new Buffer(255);
+var size = 0;
 
 fs.readFile('index.html','utf-8',function read(err,data){
     if(err){
@@ -9,13 +10,14 @@ fs.readFile('index.html','utf-8',function read(err,data){
     }
 //   content = data;
     buffer.write(data,"ascii");
+    size = data.length;
 });
 
 
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send(buffer.toString('ascii'));
+  response.send(buffer.toString('ascii',0,size));
 });
 
 var port = process.env.PORT || 5000;
