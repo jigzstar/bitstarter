@@ -15,7 +15,7 @@ fs.readFile('index.html','utf-8',function read(err,data){
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send(buffer.toString());
+  response.send(buffer.toString('ascii'));
 });
 
 var port = process.env.PORT || 5000;
